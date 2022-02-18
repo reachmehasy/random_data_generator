@@ -3,7 +3,7 @@ from random import randint
 
 def datagenerate(headers1,headers2,headers3):
 
-    with open("file1.csv", 'wt') as csvFile1,open('file2.csv','wt') as csvFile2,open('file3.csv','wt') as csvFile3:
+    with open("file1.csv", 'wt', newline='') as csvFile1,open('file2.csv','wt',newline='') as csvFile2,open('file3.csv','wt',newline='') as csvFile3:
         writer1 = csv.DictWriter(csvFile1, fieldnames=headers1)
         writer2 = csv.DictWriter(csvFile2, fieldnames=headers2)
         writer3 = csv.DictWriter(csvFile3, fieldnames=headers3)
