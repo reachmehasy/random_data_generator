@@ -1,12 +1,12 @@
 import csv
-import random
+from random import randint
 
 def datagenerate(headers1,headers2,headers3):
 
-    with open("brkg.csv", 'wt') as csvFile,open('pos_brkg.csv','wt') as posFile,open('pos_sec_loc.csv','wt') as posSecFile:
-        writer1 = csv.DictWriter(csvFile, fieldnames=headers1)
-        writer2 = csv.DictWriter(posFile, fieldnames=headers2)
-        writer3 = csv.DictWriter(posSecFile, fieldnames=headers3)
+    with open("file1.csv", 'wt') as csvFile1,open('file2.csv','wt') as csvFile2,open('file3.csv','wt') as csvFile3:
+        writer1 = csv.DictWriter(csvFile1, fieldnames=headers1)
+        writer2 = csv.DictWriter(csvFile2, fieldnames=headers2)
+        writer3 = csv.DictWriter(csvFile3, fieldnames=headers3)
         writer1.writeheader()
         writer2.writeheader()
         writer3.writeheader()
@@ -31,27 +31,29 @@ def datagenerate(headers1,headers2,headers3):
             shr_qty = randint(1, 1000)
             
             writer1.writerow({
-                    "acct_id" : account_id,
-                    "brkg_acct_no" : brkg_acct_no,
-                    "rep_cd" : rep_cd,
+                    "act_id" : account_id,
+                    "b_act_no" : brkg_acct_no,
+                    "reppy_cd" : rep_cd,
                     "opt_eff_bgn_dt" : opt_eff_bgn_dt,                
-                    "ser_acct_stat_cd" : ser_acct_stat_cd,
+                    "ser_stat_cd" : ser_acct_stat_cd,
                     "opt_perm_cd": opt_perm_cd
                     })
 
             writer2.writerow({
-                    "acct_id" : account_id,
-                    "acct_post_id" : pos_id,
+                    "act_id" : account_id,
+                    "pos_id" : pos_id,
                     "qty" : quantity,
                     "inst_id" : inst_id,                
-                    "post_dt" : post_dt
+                    "pos_dt" : post_dt
                     })
             
             writer3.writerow({
-                    "acct_post_id" : pos_id,
-                    "box_loc_cd" : lock_box_cd,
-                    "loc_shr_qty" : shr_qty
+                    "pos_id" : pos_id,
+                    "lockx" : lock_box_cd,
+                    "shr_qty" : shr_qty
                     })            
+            
+            
             
             
     
@@ -61,9 +63,9 @@ if __name__ == '__main__':
     records = 10
     
 # Output file headers
-    headers1 = ["acct_id", "brkg_acct_no","rep_cd","opt_eff_bgn_dt","ser_acct_stat_cd","opt_perm_cd"]
-    headers2 = ["acct_id", "acct_post_id","qty","inst_id","post_dt"]
-    headers3 = ["acct_post_id", "box_loc_cd","loc_shr_qty"]
+    headers1 = ["act_id", "b_act_no","reppy_cd","opt_eff_bgn_dt","ser_stat_cd","opt_perm_cd"]
+    headers2 = ["act_id", "pos_id","qty","inst_id","pos_dt"]
+    headers3 = ["pos_id", "lockx","shr_qty"]
 
 # Random values in list    
     rep_code = ['CORS','TEST','COLA','MENT','CORA','ISLA']
