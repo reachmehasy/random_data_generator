@@ -14,7 +14,7 @@ def datagenerate(headers1,headers2,headers3):
         
         for i in range(records):
 # brkg_id            
-            account_id = randint(1, 1000000000)
+            account_id = i+1000
             brkg_acct_no =  randint(1, 1000000000)
             rep_cd = random.choice(rep_code)
             opt_eff_bgn_dt = random.choice(ran_bgn_dt)
@@ -53,8 +53,6 @@ def datagenerate(headers1,headers2,headers3):
                     "lockx" : lock_box_cd,
                     "shr_qty" : shr_qty
                     })            
-            
-            
             
             
     
