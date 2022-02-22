@@ -52,7 +52,7 @@ def datagenerate():
             print(parsed)
             al_nm = "jsonFile"+str(part)
             with open(out_file_name, 'wt', newline='') as al_nm:
-                al_nm.write(str(parsed))
+                al_nm.write(str(json.dumps(parsed,indent=4)))
             counter=0
             parsed=[]
                 
